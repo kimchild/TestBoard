@@ -1,0 +1,12 @@
+spring:
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+      
+logging:
+  level:
+    org.hibernate:
+      SQL: DEBUG
+      type: TRACE # BasicTypeRegistry와 같이 해제해야 함
+      BasicTypeRegistry: WARN
