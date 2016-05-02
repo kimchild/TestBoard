@@ -1,6 +1,9 @@
 package com.board.com.board.Controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort.Direction;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,13 +21,13 @@ public class BoardController {
 	
 	
 	@RequestMapping(path = "/", method = RequestMethod.GET)
-	public String list(ModelMap modelMap) {
+	public String list(@PageableDefault(sort = { "createDate" }, direction = Direction.DESC) Pageable pageable, ModelMap modelMap) {
 		
-		//modelMap.put("list", "list");
 		Board board = new Board();
 		board.setTitle("제목1");
 		board.setContents("내용1");
-		boardService.list();
+		
+		modelMap.put("objPage", boardService.list(pageable));
 		
 		return "board/list";
 	}

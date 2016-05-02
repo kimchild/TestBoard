@@ -3,6 +3,8 @@ package com.board.com.board.Service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.board.com.board.Domain.Board;
@@ -15,14 +17,14 @@ public class BoardServiceImpl implements BoardService{
 	BoardRepository boardRepository;
 	
 	@Override
-	public List<Board> list() {
+	public Page<Board> list(Pageable pageable) {
 	
 		Board board = new Board();
 		board.setTitle("제목1");
 		board.setContents("내용1");
 		boardRepository.save(board);
 		
-		return boardRepository.findAll();
+		return boardRepository.findAll(pageable);
 	}
 
 }

@@ -5,6 +5,8 @@ import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.PrePersist;
+import javax.persistence.PreUpdate;
 
 @Entity
 public class Board {
@@ -12,10 +14,51 @@ public class Board {
 	@Id
 	@GeneratedValue
 	private long seq;
+	private String author;
+	private String userId;
 	private String title;
 	private String contents;
+	private int readCnt;
 	private Date createDate;
 	private Date updateDate;
+	
+	@PrePersist
+	void onCreate() {
+		setCreateDate(new Date());
+		setUpdateDate(new Date());
+	}
+	
+	@PreUpdate
+	void onUpdate() {
+		setUpdateDate(new Date());
+	}
+	
+	
+	
+	public String getAuthor() {
+		return author;
+	}
+
+	public void setAuthor(String author) {
+		this.author = author;
+	}
+
+	public String getUserId() {
+		return userId;
+	}
+
+	public void setUserId(String userId) {
+		this.userId = userId;
+	}
+
+	public int getReadCnt() {
+		return readCnt;
+	}
+
+	public void setReadCnt(int readCnt) {
+		this.readCnt = readCnt;
+	}
+
 	public long getSeq() {
 		return seq;
 	}

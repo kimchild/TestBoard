@@ -2,10 +2,13 @@ package com.board.com.board.Service;
 
 import java.util.List;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+
 import com.board.com.board.Domain.Board;
 
 public interface BoardService {
 	
-	List<Board> list();
+	Page<Board> list(Pageable pageable);
 
 }
