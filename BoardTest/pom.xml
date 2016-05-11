@@ -32,6 +32,13 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-freemarker</artifactId>
 		</dependency>
+<!-- 		<dependency> lombok설치도 했는데 왜 안될까... -->
+<!-- 			<groupId>org.projectlombok</groupId> -->
+<!-- 			<artifactId>lombok</artifactId> -->
+<!-- 			<version>1.16.8</version> -->
+<!-- 			<scope>provided</scope> -->
+<!-- 		</dependency> -->
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
@@ -52,6 +59,14 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+		<!-- <dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-integration</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-undertow</artifactId>
+		</dependency> -->
 	</dependencies>
 	
 	<build>
