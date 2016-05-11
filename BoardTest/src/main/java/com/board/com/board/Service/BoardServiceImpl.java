@@ -22,9 +22,19 @@ public class BoardServiceImpl implements BoardService{
 		Board board = new Board();
 		board.setTitle("제목1");
 		board.setContents("내용1");
+		board.setAuthor("me");
 		boardRepository.save(board);
 		
 		return boardRepository.findAll(pageable);
+	}
+
+	@Override
+	public Board content(long seq) {
+		
+		Board content = boardRepository.findOne(seq);
+		
+		
+		return content;
 	}
 
 }

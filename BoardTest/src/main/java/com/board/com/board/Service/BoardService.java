@@ -11,4 +11,5 @@ public interface BoardService {
 	
 	Page<Board> list(Pageable pageable);
 
+	Board content(long seq);
 }
